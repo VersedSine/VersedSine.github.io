@@ -5,19 +5,28 @@
 <body>
     <div id="main">
         <form></form>
-        起始（含）<input type="number" id="start">
+        起始（含）<input type="number" id="start" value="114514">
         <br>
-        结束（含）<input type="number" id="end">
+        结束（含）<input type="number" id="end" value="1919810">
+        <br>
+        数量<input type="number" id="num" value="154">
+        <br>
+        排序<input type="checkbox" id="sort">
         <br>
         <button onclick="btn_g()">生成</button>
     </div>
     <div id="output"></div>
     <script>
-        var start = document.getElementById("start"),end = document.getElementById("end");
+        var start = document.getElementById("start"),end = document.getElementById("end"),num = document.getElementById("num"),sort = document.getElementById("sort");
         var output = document.getElementById("output");
 
         function btn_g(){
-            output.innerHTML = Math.floor(Math.random()*(end.value-start.value+1))+Number(start.value);
+            if(start.value>end.value) [start.value,end.value] = [end.value,start.value];
+            var a = new Array(Number(num.value));
+            for(var i=0;i<num.value;i++) a[i] = (Math.floor(Math.random()*(end.value-start.value+1))+Number(start.value)),console.log(1);
+            if(sort.value){a = a.sort();}
+            output.innerHTML = a;
+            delete a;
         }
     </script>
 </body>
