@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>random</title>
+</head>
+<body>
+    <div id="main">
+        <form></form>
+        起始（含）<input type="number" id="start">
+        <br>
+        结束（含）<input type="number" id="end">
+        <br>
+        <button onclick="btn_g()">生成</button>
+    </div>
+    <div id="output"></div>
+    <script>
+        var start = document.getElementById("start"),end = document.getElementById("end");
+        var output = document.getElementById("output");
+
+        function btn_g(){
+            output.innerHTML = Math.floor(Math.random()*(end.value-start.value+1))+Number(start.value);
+        }
+    </script>
+</body>
