@@ -7,9 +7,12 @@
             user-select: none;
         }
         #btn{
+            text-align: center;
+            border: none;
+            color: #000;
+            font-size: 100px;
             height: 100vh;
             width: 100vw;
-            
         }
     </style>
 </head>
@@ -21,8 +24,20 @@
     </button>
     <div id="div1"></div>
     <script>
-        var n = 0,start_time=0,flag=false;
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+            var context = "";
+            if (r != null)
+                context = decodeURIComponent(r[2]);
+            reg = null;
+            r = null;
+            return context == null || context == "" || context == "undefined" ? "" : context;
+        }
+        var n = GetQueryString("n"),start_time=0,flag=false;
         var num_in_btn = document.getElementById("num_in_btn"),div1 = document.getElementById("div1");
+        
+        num_in_btn.innerHTML = n;
         function btn(){
             /*if(!flag){
                 flag = 1;
