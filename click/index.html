@@ -34,16 +34,16 @@
             r = null;
             return context == null || context == "" || context == "undefined" ? "" : context;
         }
-        var n = GetQueryString("n"),start_time=0,flag=false;
+        var n = Number(GetQueryString("n")),step = GetQueryString("step")?GetQueryString("step"):1,start_time=0,flag=false;
         var num_in_btn = document.getElementById("num_in_btn"),div1 = document.getElementById("div1");
         
-        num_in_btn.innerHTML = n;
+        num_in_btn.innerHTML = n?n:"";
         function btn(){
             /*if(!flag){
                 flag = 1;
                 n = 0;
                 setTimeout(end(),10000);
-            }else */n++;
+            }else */n += Number(step);
             num_in_btn.innerHTML = n;
         }
         /*function end(){
