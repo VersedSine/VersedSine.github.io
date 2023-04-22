@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>TestFile3</title>
+    <meta charset="utf-8" />
+    <style>
+        #text1{
+            width: 50vw;
+            height: 5vh;
+        }
+    </style>
+</head>
+<body>
+    <form></form>
+    <input id="text1" type="text" value="https://cdn.luogu.com.cn/upload/image_hosting/g3n24tj9.png"/>
+    <br>
+    <button id="btn1" onclick="btn()">show</button>
+    <br><br>
+    <img id="img1" src="" alt="it's an img" />
+    <script>
+        function gebi(site){return document.getElementById(site);}
+        var text1=gebi("text1"),btn1=gebi("btn1"),img1=gebi("img1");
+        function btn(){
+            console.log(text1.value);
+            img1.src = text1.value;
+        }
+    </script>
+</body>
