@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <title>qszh</title>
+    <meta charset="utf-8">
+    <style>
+        .div_chs{
+            background-color: blue;
+            height: 45vh;
+        }
+        .div_ch{
+            display: inline-block;
+            /*float: left;*/
+            height: 40vh;
+            width: 15vw;
+            background-color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="opponent" class="div_chs">
+            <div id="oppo_ch_1" class="div_ch">oppo_ch_1</div>&nbsp;
+            <div id="oppo_ch_2" class="div_ch">oppo_ch_2</div>&nbsp;
+            <div id="oppo_ch_3" class="div_ch">oppo_ch_3</div>&nbsp;
+        </div><br>
+        <div id="myself" class="div_chs">
+            <div id="mslf_ch_1" class="div_ch">mslf_ch_1</div>&nbsp;
+            <div id="mslf_ch_2" class="div_ch">mslf_ch_2</div>&nbsp;
+            <div id="mslf_ch_3" class="div_ch">mslf_ch_3</div>&nbsp;
+        </div>
+    </div>
+    <script>
+        ch={
+            ch_num:1,
+            hp:10
+        }
+        console.log(ch.ch_num);
+    </script>
+</body>
