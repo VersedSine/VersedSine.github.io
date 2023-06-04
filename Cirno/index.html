@@ -14,10 +14,17 @@
         #img_1{
             width: 50vw;
         }
+        #div_1{
+            color: aqua;
+        }
     </style>
+    <script src="../@/Bmob-2.4.14.min.js">var Bmob = require('./src/lib/app.js');</script>
+    <script>Bmob.initialize("926664d42455123f", "1233333333333333");Bmob.debug(true);</script>
 </head>
 <body>
     <button id="btn_1" onclick="btn_1()"><img id="img_1" src="./pic1.jpg"></button>
+    <div id="div_1"></div>
+</body>
     <script>
         function GetQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -29,13 +36,34 @@
             r = null;
             return context == null || context == "" || context == "undefined" ? "" : context;
         }
+        const query_cirno = Bmob.Query('Cirno');
         var step=GetQueryString("step")?GetQueryString("step"):300,sto;
-        var img_1=document.getElementById("img_1");
+        var img_1=document.getElementById("img_1"),div_1=document.getElementById("div_1");
+
+        function updata(){
+            query_cirno.get('1f54aa050d').then(res => {
+                console.log(res)
+                div_1.innerHTML = res.clickNumber;
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+
+        updata();
+
         function btn_1(){
             clearTimeout(sto);
             img_1.src = "./pic2.jpg";
             console.log(1);
             sto = setTimeout(function(){img_1.src = "./pic1.jpg";},step);
+            
+            query_cirno.get('1f54aa050d').then(res => {
+                res.increment('clickNumber')
+                res.save()
+            }).catch(err => {
+                console.log(err) 
+            })
+
+            updata();
         }
     </script>
-</body>
